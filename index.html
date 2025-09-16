@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/icon.png" type="image/x-icon">
+    <title>Guía para Crafteadores Web</title>
+    <style>
+        :root {
+            --minecraft-green: #59b256;
+            --minecraft-brown: #8B4513;
+            --stone-bg: #3c3c3c;
+            --dark-stone: #2e2e2e;
+            --light-text: #f0f0f0;
+            --code-bg: #1e1e1e;
+            --code-border: #505050;
+            --diamond-blue: #33e0e0;
+            --gold-yellow: #e0e033;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace; /* Fuente pixelada */
+            background-color: var(--dark-stone);
+            color: var(--light-text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Textura de cubos */
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--stone-bg);
+            padding: 25px;
+            border-radius: 0; /* Bordes cuadrados */
+            border: 4px solid var(--minecraft-brown);
+            box-shadow: 0 0 0 4px var(--dark-stone);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--minecraft-brown);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: var(--minecraft-green);
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 2px 2px #2e2e2e;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: var(--minecraft-green);
+            border-bottom: 1px solid var(--code-border);
+            padding-bottom: 10px;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: var(--diamond-blue);
+            font-size: 1.3em;
+        }
+        
+        img.section-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 50%;
+            border-radius: 0;
+            border: 4px solid var(--minecraft-brown);
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: 0;
+            border: 1px solid var(--code-border);
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: rgba(0,0,0,0.3);
+            padding: 3px 6px;
+            border-radius: 0;
+        }
+        
+        strong.tag-name {
+            color: var(--gold-yellow);
+            font-weight: bold;
+        }
+
+        .explanation-box {
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--code-border);
+            border-radius: 0;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .visual-example {
+            background-color: var(--dark-stone);
+            border: 2px dashed var(--code-border);
+            border-radius: 0;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        
+        .visual-example h4 {
+            margin-top: 0;
+            font-weight: normal;
+            color: var(--diamond-blue);
+            text-align: center;
+            border-bottom: 1px solid var(--code-border);
+            padding-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>⛏️ Guía para Crafteadores Web</h1>
+            <p>Aprende a definir la apariencia de tus bloques HTML con propiedades CSS.</p>
+        </header>
+
+        <main>
+            <!-- SECCIÓN DE PREPARACIÓN -->
+            <section>
+                <h2>Paso 0: La Mesa de Crafteo</h2>
+                <p>Antes de poner bloques, necesitamos preparar nuestras herramientas y nuestro mundo.</p>
+                <img src="./images/mesa.png" alt="Mesa de Crafteo con herramientas web" class="section-image">
+                <div class="explanation-box">
+                    <h3>Nuestra herramienta: vscode.dev</h3>
+                    <p>Usa <strong><a href="https://vscode.dev/" target="_blank" style="color: var(--diamond-blue);">https://vscode.dev/</a></strong>.</p>
+                    
+                    <h3>Crafteando tus Archivos</h3>
+                    <ol>
+                        <li>Abre vscode.dev y accede a la carpeta con tu curso y la palabra estudiante (ejemplo 9 Estudiante 10 Estudiante).
+
+                            <img src="./images/abrirCarpeta.png" alt="" width="100%">
+                        </li>
+                        <li>Crea una carpeta llamada <code>crafteador</code> y dentro de ella crea un archivo <code>index.html</code> y un archivo <code>style.css</code>.
+                        <img src="./images/rutas.png" alt="">
+                    </li>
+                    </ol>
+
+                    <h3>La Estructura Base del Mundo</h3>
+                    <p>Para generar el esqueleto de tu página, escribe <code>html:5</code> en <code>index.html</code> y presiona Tab. Se creará esto:</p>
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mi Mundo Minecraft&lt;/title&gt;
+    
+    &lt;!-- Deberás agregar esta línea para enlazar con el archivo CSS --&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+    &lt;!-- Agrega: un ícono a la pestaña, conocido como favicon--&gt;
+    &lt;link rel="icon" type="image/png" href="url o ubicacion icono"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Todos nuestros bloques irán aquí dentro --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    <p><strong>¿Qué es el Favicon?</strong> Es el pequeño ícono que aparece en la pestaña de tu navegador. Ayuda a identificar tu página.</p>
+                </div>
+            </section>
+
+            <!-- SECCIÓN HTML -->
+            <section>
+                <h2>Paso 1: Colocando los Bloques (HTML)</h2>
+                <img src="./images/construyendo.png" alt="" width="100%">
+                <p>Ahora, dentro de <code>&lt;body&gt;</code>, colocaremos nuestros bloques. Algunos tendrán etiquetas especiales (<code>class</code> o <code>id</code>) para poder darles un estilo único más adelante.</p>
+                
+                <div class="explanation-box">
+                    <h3>Encabeza nivel 1: <strong class="tag-name">&lt;h1&gt;</strong></h3>
+                    <p> Es el texto principal de página, el más grande. Le pondremos un atributo <code>id="titulo-mundo"</code> para identificarlo como único.</p>
+                    <pre><code>&lt;!-- ¡Cambia este texto por el nombre que quieras para tu mundo! --&gt;
+&lt;h1 id="titulo-mundo"&gt;Mundo de Steve_Pro_777&lt;/h1&gt;</code></pre>
+                </div>
+                
+                <div class="explanation-box">
+                    <h3>Enlace: <strong class="tag-name">&lt;a&gt;</strong></h3>
+                    <p><strong>Compáralo con</strong> un Portal del Nether. Es un elemento de texto que, al hacerle clic, te "teletransporta" a otra página. El destino se pone en el atributo <code>href</code>.</p>
+                    <pre><code>&lt;p&gt;Visita la &lt;a href="https://minecraft.net"&gt;página oficial de Minecraft&lt;/a&gt;.&lt;/p&gt;</code></pre>
+                </div>
+
+                <div class="explanation-box">
+                    <h3>Bloque lista: <strong class="tag-name">&lt;ul&gt;</strong>, <strong class="tag-name">&lt;li&gt;</strong> y la etiqueta <code>class</code></h3>
+                    <p>Imagina un cofre (<code>&lt;ul&gt;</code>) y sus items (<code>&lt;li&gt;</code>). Para poder darles un estilo especial, les pondremos una "etiqueta de crafteo" llamada <code>class</code>. A los items valiosos les pondremos la clase <code>item-raro</code>.</p>
+                    <pre><code>&lt;ul class="cofre"&gt;
+    &lt;li&gt;Madera de Roble&lt;/li&gt;
+    &lt;li class="item-raro"&gt;Pico de Diamante&lt;/li&gt;
+    &lt;li&gt;Piedra&lt;/li&gt;
+    &lt;li class="item-raro"&gt;Manzana Dorada&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+            </section>
+
+            <!-- SECCIÓN CSS -->
+            <section>
+                <h2>Paso 2: Dando Propiedades a los Bloques (CSS)</h2>
+                <img src="./images/combinar.png" alt="" width="100%">
+                <p>Ahora, en tu archivo <code>style.css</code>, vamos a definir la apariencia. Para eso, primero debemos aprender a "apuntar" a los bloques que queremos modificar.</p>
+
+                <div class="explanation-box">
+                    <h3>Cómo Apuntar a un Bloque (Selectores)</h3>
+                    <p>Para aplicar nuestras reglas de estilo, primero necesitamos un ejemplo de construcción en HTML al que podamos apuntar. Imagina que hemos crafteado la siguiente estructura en nuestro archivo <code>index.html</code>:</p>
+                    <pre><code>&lt;h1 id="titulo-mundo"&gt;Mi Fortaleza de Diamante&lt;/h1&gt;
+&lt;p&gt;Esta es la zona de cofres y tesoros.&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Madera de Roble&lt;/li&gt;
+    &lt;li class="item-raro"&gt;Pico de Diamante&lt;/li&gt;
+    &lt;li class="item-raro"&gt;Manzana Dorada&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    <p>Ahora, veamos cómo apuntar a cada parte de esta construcción para darle estilo:</p>
+                    <ul>
+                        <li><strong>Selector de Tipo:</strong> Apuntas a TODOS los bloques de un mismo material. En nuestro ejemplo, si usamos <code>p</code>, le daremos estilo al letrero que dice "Esta es la zona de cofres...".</li>
+                        <li><strong>Selector de Clase:</strong> Apuntas a TODOS los bloques que tengan una etiqueta de crafteo específica. En nuestro ejemplo, si usamos <code>.item-raro</code>, le daremos estilo al "Pico de Diamante" y a la "Manzana Dorada".</li>
+                        <li><strong>Selector de ID:</strong> Apuntas a UN ÚNICO bloque especial. En nuestro ejemplo, si usamos <code>#titulo-mundo</code>, le daremos estilo solamente al título "Mi Fortaleza de Diamante".</li>
+                    </ul>
+                </div>
+                
+                <div class="explanation-box">
+                    <h3>Propiedades de los Letreros (Selector de Tipo)</h3>
+                    <p>Vamos a darle un estilo a todos nuestros letreros (<code>&lt;p&gt;</code>).</p>
+                    <p>Utilizaremos la propiedad <code>font-family</code> para <strong>cambiar el tipo de letra</strong>. <strong>Imagina que</strong> es como cambiar el estilo de escritura en el letrero.</p>
+                    <p>Y con <code>text-align</code>, vamos a <strong>centrar el texto en el letrero</strong>. </p>
+                    <pre><code>/* Apuntamos a todos los bloques de tipo "p" */
+p {
+    font-family: 'Georgia', serif; /* Una fuente más clásica */
+    text-align: center; /* Centramos el texto */
+}</code></pre>
+                    <div class="visual-example">
+                        <h4>Resultado Visual</h4>
+                        <p style="font-family: 'Georgia', serif; text-align: center; font-family: 'Courier New', Courier, monospace;">Este texto ahora está centrado y tiene una nueva fuente.</p>
+                    </div>
+                </div>
+
+
+
+                <div class="explanation-box">
+                    <h3>Propiedades de los Items Raros (Selector de Clase)</h3>
+                    <p>Vamos a hacer que los items con la clase <code>.item-raro</code> se vean especiales.</p>
+                    <p>Utilizaremos la propiedad <code>color</code> para <strong>cambiar el color del texto a un tono dorado</strong>.</p>
+                    <p>Y con <code>font-weight</code>, haremos que el texto sea <strong>más grueso y notable (negrita)</strong>.</p>
+                    <pre><code>/* Apuntamos a todos los bloques con la clase "item-raro" */
+.item-raro {
+    color: #FFD700; /* Color Oro */
+    font-weight: bold; /* Texto en negrita */
+}</code></pre>
+                    <div class="visual-example">
+                        <h4>Resultado Visual</h4>
+                        <ul>
+                            <li>Madera de Roble</li>
+                            <li style="color: #FFD700; font-weight: bold; font-family: 'Courier New', Courier, monospace;">Pico de Diamante</li>
+                            <li>Piedra</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="explanation-box">
+                    <h3>Propiedades del Título del Mundo (Selector de ID)</h3>
+                    <p>Ahora vamos a darle un estilo único al título con el ID <code>#titulo-mundo</code>.</p>
+                    <p>Usaremos <code>font-size</code> con una unidad relativa (<code>3em</code>) para que su tamaño <strong>sea 3 veces más grande que el texto normal</strong>.</p>
+                    <p>Y con <code>font-style</code>, haremos que el texto se vea <strong>inclinado (itálica)</strong>, como un texto encantado.</p>
+                    <pre><code>/* Apuntamos al bloque único con el ID "titulo-mundo" */
+#titulo-mundo {
+    font-size: 3em; /* 3 veces el tamaño del texto base */
+    font-style: italic; /* Estilo de texto inclinado */
+}</code></pre>
+                     <div class="visual-example">
+                        <h4>Resultado Visual</h4>
+                        <h1 style="font-size: 3em; font-style: italic; color: var(--minecraft-green); text-shadow: 2px 2px #2e2e2e; font-family: 'Courier New', Courier, monospace;">Mundo de Steve_Pro_777</h1>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
+
