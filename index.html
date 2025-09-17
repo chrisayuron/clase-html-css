@@ -286,6 +286,85 @@ p {
                     </div>
                 </div>
             </section>
+
+            <!-- SECCIÓN NUEVA: MODELO DE CAJA -->
+            <section>
+                <h2>Paso 3: Dimensiones y Espacio de los Bloques (Modelo de Caja)</h2>
+                <img src="./images/caja.png" alt="Modelo de caja" width="100%">
+                <p>Cada bloque en nuestra web ocupa un espacio rectangular. Entender cómo funciona este espacio es clave para construir estructuras complejas.</p>
+
+                <div class="explanation-box">
+                    <h3>Bloques de Construcción: &lt;div&gt; vs &lt;span&gt;</h3>
+                    <p>Hay dos bloques genéricos muy importantes:</p>
+                    <ul>
+                        <li><strong class="tag-name">&lt;div&gt;</strong>: <strong>Imagina que</strong> es un "chunk" o un terreno vacío. Es un contenedor grande que se usa para agrupar otros bloques (como una casa que contiene cofres, hornos, etc.). Por defecto, es un <strong>elemento en bloque</strong>.</li>
+                        <li><strong class="tag-name">&lt;span&gt;</strong>: <strong>Compáralo con</strong> un tinte que aplicas a una sola palabra en un letrero. Se usa para dar estilo a una pequeña parte de texto sin crear una nueva línea. Por defecto, es un <strong>elemento en línea</strong>.</li>
+                    </ul>
+                    <p><strong>¿Bloque vs. En línea?</strong> Un elemento <strong>en bloque</strong> (como <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;div&gt;</code>) es como un horno: siempre ocupa todo el ancho disponible y fuerza un salto de línea antes y después. Un elemento <strong>en línea</strong> (como <code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>) es como una antorcha: solo ocupa el espacio que necesita y permite que otros elementos en línea se sienten a su lado.</p>
+                    <div class="visual-example">
+                        <h4>Resultado Visual: Bloque vs. En Línea</h4>
+                        <p style="font-size: 0.9em; text-align: left;"><strong>Ejemplo en Bloque (como un <code>&lt;h1&gt;</code>):</strong> Ocupa todo el ancho, aunque su contenido sea corto. No deja que nadie se ponga a su lado.</p>
+                        <div style="background-color: var(--minecraft-green); color: var(--dark-stone); font-weight: bold; font-family: 'Courier New', Courier, monospace;">
+                            Soy un bloque &lt;h1&gt;
+                        </div>
+                        <p style="font-size: 0.9em; text-align: left; margin-top: 20px;"><strong>Ejemplo en Línea (como un <code>&lt;span&gt;</code>):</strong> Ocupa solo el espacio necesario y se sienta felizmente al lado de otros elementos en línea.</p>
+                        <div>
+                            <span style="background-color: var(--diamond-blue); color: var(--dark-stone); font-weight: bold; font-family: 'Courier New', Courier, monospace;">Soy un span</span>
+                            <span style="background-color: var(--gold-yellow); color: var(--dark-stone); font-weight: bold; font-family: 'Courier New', Courier, monospace;">y yo también</span>
+                            <a href="#" style="background-color: #f0f0f0; color: var(--dark-stone); font-weight: bold; font-family: 'Courier New', Courier, monospace;">¡y yo!</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="explanation-box">
+                    <h3>El Modelo de Caja: La "Hitbox" de un Bloque</h3>
+                    <p>Cada bloque tiene capas que definen su espacio, como la "hitbox" en el juego.</p>
+                    <pre><code>&lt;div class="caja-demostracion"&gt;Contenido del Bloque&lt;/div&gt;</code></pre>
+                    <p>Ahora, en CSS, vamos a darle propiedades a esta caja:</p>
+                    <ul>
+                        <li><code>width</code> y <code>height</code>: El ancho y alto del bloque. Es como decidir que tu muro tendrá 10 bloques de ancho y 5 de alto.</li>
+                        <li><code>padding</code>: El espacio interior. Es como el grosor de las paredes de un cofre, empuja el contenido hacia adentro.</li>
+                        <li><code>border</code>: El borde del bloque. Es la línea negra que rodea cada bloque en Minecraft.</li>
+                        <li><code>margin</code>: El espacio exterior. Es el aire o la distancia invisible entre tu bloque y los bloques vecinos.</li>
+                    </ul>
+                    <p><strong>¡Regla de crafteo importante!</strong> Usa <code>box-sizing: border-box;</code>. Esto asegura que cuando definas un `width` y `height`, el `padding` y `border` se creen HACIA ADENTRO, sin hacer el bloque más grande de lo que planeaste. ¡Evita que tus construcciones se descuadren!</p>
+                    <pre><code>.caja-demostracion {
+    box-sizing: border-box; /* ¡Regla de crafteo esencial! */
+    width: 300px; /* Ancho de 300 pixeles */
+    height: 100px; /* Alto de 100 pixeles */
+    background-color: #5C3A1E; /* Madera */
+    
+    /* Propiedades del Modelo de Caja */
+    padding: 20px; /* 20px de espacio por dentro */
+    border: 5px solid #3C2612; /* Borde de madera oscura de 5px */
+    margin: 30px; /* 30px de espacio por fuera */
+
+    /* "Encantamientos" extra */
+    outline: 2px dashed var(--gold-yellow); /* Un aura dorada punteada */
+    box-shadow: 5px 5px 10px #1e1e1e; /* Sombra que proyecta el bloque */
+}</code></pre>
+                    <div class="visual-example">
+                        <h4>Resultado Visual</h4>
+                        <div style="box-sizing: border-box; width: 300px; height: 100px; background-color: #5C3A1E; padding: 20px; border: 5px solid #3C2612; margin: 30px auto; outline: 2px dashed var(--gold-yellow); box-shadow: 5px 5px 10px #1e1e1e; font-family: 'Courier New', Courier, monospace; text-align: center;">Contenido del Bloque</div>
+                    </div>
+                </div>
+
+                <div class="explanation-box">
+                    <h3>Cambiando las Reglas: La Propiedad <code>display</code></h3>
+                    <p>¿Y si quieres que un bloque se comporte de forma diferente? La propiedad <code>display</code> es como un comando que cambia las reglas del juego.</p>
+                    <p>Puedes forzar a un elemento en línea (como un <code>&lt;span&gt;</code>) a actuar como un bloque, o viceversa.</p>
+                    <pre><code>span {
+    display: block; /* Ahora este span se comportará como un div */
+}
+
+div {
+    display: inline; /* Ahora este div se comportará como un span */
+}</code></pre>
+                
+                    <img src="./images/diplay.png" alt="" width="100%">
+                
+                </div>
+            </section>
         </main>
     </div>
 
