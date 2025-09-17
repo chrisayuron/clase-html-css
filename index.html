@@ -287,7 +287,7 @@ p {
                 </div>
             </section>
 
-            <!-- SECCIÓN NUEVA: MODELO DE CAJA -->
+            <!-- SECCIÓN MODELO DE CAJA -->
             <section>
                 <h2>Paso 3: Dimensiones y Espacio de los Bloques (Modelo de Caja)</h2>
                 <img src="./images/caja.png" alt="Modelo de caja" width="100%">
@@ -300,18 +300,17 @@ p {
                         <li><strong class="tag-name">&lt;div&gt;</strong>: <strong>Imagina que</strong> es un "chunk" o un terreno vacío. Es un contenedor grande que se usa para agrupar otros bloques (como una casa que contiene cofres, hornos, etc.). Por defecto, es un <strong>elemento en bloque</strong>.</li>
                         <li><strong class="tag-name">&lt;span&gt;</strong>: <strong>Compáralo con</strong> un tinte que aplicas a una sola palabra en un letrero. Se usa para dar estilo a una pequeña parte de texto sin crear una nueva línea. Por defecto, es un <strong>elemento en línea</strong>.</li>
                     </ul>
-                    <p><strong>¿Bloque vs. En línea?</strong> Un elemento <strong>en bloque</strong> (como <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;div&gt;</code>) es como un horno: siempre ocupa todo el ancho disponible y fuerza un salto de línea antes y después. Un elemento <strong>en línea</strong> (como <code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>) es como una antorcha: solo ocupa el espacio que necesita y permite que otros elementos en línea se sienten a su lado.</p>
+                    <p><strong>¿Bloque vs. En línea?</strong> Un elemento <strong>en bloque</strong> (<code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>) es como un horno: siempre ocupa todo el ancho disponible y fuerza un salto de línea. Un elemento <strong>en línea</strong> (<code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>) es como una antorcha: solo ocupa el espacio que necesita y permite que otros se sienten a su lado.</p>
                     <div class="visual-example">
                         <h4>Resultado Visual: Bloque vs. En Línea</h4>
-                        <p style="font-size: 0.9em; text-align: left;"><strong>Ejemplo en Bloque (como un <code>&lt;h1&gt;</code>):</strong> Ocupa todo el ancho, aunque su contenido sea corto. No deja que nadie se ponga a su lado.</p>
+                        <p style="font-size: 0.9em; text-align: left;"><strong>Ejemplo en Bloque:</strong> Ocupa todo el ancho, no deja que nadie se ponga a su lado.</p>
                         <div style="background-color: var(--minecraft-green); color: var(--dark-stone); font-weight: bold; font-family: 'Courier New', Courier, monospace;">
                             Soy un bloque &lt;h1&gt;
                         </div>
-                        <p style="font-size: 0.9em; text-align: left; margin-top: 20px;"><strong>Ejemplo en Línea (como un <code>&lt;span&gt;</code>):</strong> Ocupa solo el espacio necesario y se sienta felizmente al lado de otros elementos en línea.</p>
+                        <p style="font-size: 0.9em; text-align: left; margin-top: 20px;"><strong>Ejemplo en Línea:</strong> Ocupa solo lo necesario y se sienta al lado de otros.</p>
                         <div>
                             <span style="background-color: var(--diamond-blue); color: var(--dark-stone); font-weight: bold; font-family: 'Courier New', Courier, monospace;">Soy un span</span>
                             <span style="background-color: var(--gold-yellow); color: var(--dark-stone); font-weight: bold; font-family: 'Courier New', Courier, monospace;">y yo también</span>
-                            <a href="#" style="background-color: #f0f0f0; color: var(--dark-stone); font-weight: bold; font-family: 'Courier New', Courier, monospace;">¡y yo!</a>
                         </div>
                     </div>
                 </div>
@@ -360,9 +359,35 @@ p {
 div {
     display: inline; /* Ahora este div se comportará como un span */
 }</code></pre>
-                
-                    <img src="./images/diplay.png" alt="" width="100%">
-                
+                </div>
+            </section>
+
+            <!-- SECCIÓN DE PROYECTO -->
+            <section>
+                <h2>Paso 4: ¡Tu Turno de Craftear! (Proyecto Final)</h2>
+                <img src="./images/creeper.png" alt="Un creeper observando" class="section-image">
+                <p>Has aprendido a colocar bloques, a darles propiedades y a manejar sus dimensiones. Ahora es tu momento de crear algo único.</p>
+                <div class="explanation-box">
+                    <h3>Misión: Tu Página Personal</h3>
+                    <p>Construye una página web sobre ti. ¡El tema es libre! Puede ser sobre tus hobbies, tu música favorita, el deporte que practicas o lo que más te apasione.</p>
+                    <ul>
+                        <li><strong>Un Título Principal <code>&lt;h1&gt;</code></strong> con un <code>id</code> único que presente el tema de tu página (ej: "Mis Hobbies").</li>
+                        <li><strong>Un Párrafo <code>&lt;p&gt;</code></strong> que introduzca el tema y hable un poco sobre ti.</li>
+                        <li><strong>Una Imagen <code>&lt;img&gt;</code></strong> que represente el tema de tu página.</li>
+                        <li><strong>Un Enlace <code>&lt;a&gt;</code></strong> a una página web externa que te guste y que esté relacionada con tu tema (ej: una página de un artista, un club deportivo, un recurso educativo, etc.).</li>
+                        <li><strong>Una Lista <code>&lt;ul&gt;</code></strong> con 4 elementos relacionados con tu tema (ej: 4 de tus canciones favoritas, 4 videojuegos, 4 libros, etc.). Al menos dos de ellos deben tener la <code>class="favorito"</code>.</li>
+                        <li>Usa al menos un <strong><code>&lt;div&gt;</code></strong> para agrupar una sección y un <strong><code>&lt;span&gt;</code></strong> para darle un color diferente a una palabra clave en un párrafo.</li>
+                        <li>En tu archivo <code>style.css</code>, debes:
+                            <ul>
+                                <li>Usar un selector de <strong>tipo</strong> (ej. <code>p</code>), uno de <strong>clase</strong> (<code>.favorito</code>) y uno de <strong>ID</strong> (<code>#tu-id</code>).</li>
+                                <li>Aplicar propiedades como <code>color</code>, <code>background-color</code>, <code>font-size</code> y <code>font-family</code>.</li>
+                                <li>Crear al menos un bloque (puede ser un <code>div</code> o la lista <code>ul</code>) que tenga un <code>width</code>, <code>padding</code>, <code>border</code> y <code>margin</code> definidos. ¡No olvides usar <code>box-sizing: border-box;</code>!</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>✨ Encantamiento Extra (Opcional)</h3>
+                    <p>Si te sientes aventurero, intenta usar <code>box-shadow</code> para darle una sombra a tu bloque principal o cambia el <code>display</code> de algún elemento para ver qué pasa.</p>
+                    <p>¡Mucha suerte, crafteador! ¡Demuestra tu creatividad!</p>
                 </div>
             </section>
         </main>
